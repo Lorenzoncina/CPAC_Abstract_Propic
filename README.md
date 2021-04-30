@@ -27,7 +27,7 @@ The mood label that classifies the set of songs is then used to condition the ge
 Examples of painting-mood assignment are:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57753481/116582846-0b5dbf80-a916-11eb-971d-a3da7e6889f2.jpg" width="200" height="200" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116583050-3cd68b00-a916-11eb-9186-86ce3697dad3.jpg" width="200" height="200" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116581873-12380280-a915-11eb-90f9-a4dada473073.jpg" width="200" height="200" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116582438-a86c2880-a915-11eb-9e19-95e7db2456bb.jpg" width="200" height="200" />
+<img src="https://user-images.githubusercontent.com/57753481/116582846-0b5dbf80-a916-11eb-971d-a3da7e6889f2.jpg" width="200" height="200" /> &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116583050-3cd68b00-a916-11eb-9186-86ce3697dad3.jpg" width="200" height="200" /> &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116581873-12380280-a915-11eb-90f9-a4dada473073.jpg" width="200" height="200" /> &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/57753481/116582438-a86c2880-a915-11eb-9e19-95e7db2456bb.jpg" width="200" height="200" />
 </p>
 
 {Happy, Angry, Sad, Relaxed}
