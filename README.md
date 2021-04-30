@@ -3,7 +3,7 @@ Abstract_Propic is an automatic profile picture generator. Based on a deep-learn
 
 The present application is developed by Laura Colzani, Lorenzo Concina and Luca Torelli, as part of the Creative Programming and Computing course at Politecnico di Milano, Italy.
 
-## The concept:
+## 1. The concept:
 In the context of creative computing, this project aims to explore the interaction and contamination between visual and auditory arts. In the history of both these disciplines, lots of musicians have reported to perceive music and sounds as shapes and colors, and lots of painters and visual artists have reported their works to be inspired by music and sounds:
 
 > *“Everything that I make I'm already thinking of what colour it is, and what texture it is, and what day of the week it is, and what number it is, and what shape.”* - Billie Eilish.
@@ -14,7 +14,7 @@ In the context of creative computing, this project aims to explore the interacti
 
 Even though sensations and inspiration cannot be faithfully reproduced by technology, this project tries to interprete music in a synesthetic way by analyzing songs with mood detection and, based on that, realizing an abstract painting to be used as a Spotify profile picture.
 
-## The technology:
+## 2. The technology:
 Abstract_Propic exploits the Spotify API to retrieve information about the user and the songs he listens to the most, performing feature extraction and mood detection on them, based on the features of **energy** and **valence**. Thorugh the use of these two features, four fundamental moods are identified:
 
 - **Happy** *(high energy, high valence)*,
@@ -44,8 +44,15 @@ Examples of generated images are:
 
 {Happy, Angry, Sad, Relaxed}
 
-## The interface:
+## 3. The interface:
 Abstract_Propic is built as a webpage in which users can log in with their Spotify account, so that the application can retrieve the information needed for the analysis process. No personal or sensitive data are stored in the database during this phase, except for the Spotify user ID and a list of the ten user's top tracks. After the login, the user is directed back to the main page of the application, where the generated image will be displayed after few seconds, along with the list of the songs considered for the analysis.
 
-## The architecture:
 For the realization of this project a standard client-server architecture has been chosen, implemented with Node.js.
+
+## 4. Code:
+
+## 5. Notes:
+The developement of Abstract_Propic has been a really challenging and exciting task. Along with the complexity in managing the analysis and generation problems, lots of ideas and solutions came out. We hope that this application will suggest the developement of more sophisticated tools that could explore the contamination between music and visual art as part of a new conception and deeper understanding of synesthetic phenomena.
+
+### 5.1. Contacts
+
