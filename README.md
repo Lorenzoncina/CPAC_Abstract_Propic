@@ -1,6 +1,8 @@
 # CPAC_Abstract_Propic
 Abstract_Propic is an automatic profile picture generator. Based on a deep-learning model, this tool generates a new and unique image for your Spotify account inspired by the songs you listen to the most.
 
+The present application is developed by Laura Colzani, Lorenzo Concina and Luca Torelli, as part of the Creative Programming and Computing course at Politecnico di Milano, Italy.
+
 ## The concept:
 In the context of creative computing, this project aims to explore the interaction and contamination between visual and auditory arts. In the history of both these disciplines, lots of musicians have reported to perceive music and sounds as shapes and colors, and lots of painters and visual artists have reported their works to be inspired by music and sounds:
 
