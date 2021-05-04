@@ -13,7 +13,7 @@ In the context of creative computing, this project aims to explore the interacti
 
 > *“Everything I sonically make is a painting. I see it. I see the importance and the value of everyone being able to experience a more beautiful life."* - Kanye West.
 
-> *“The idea of music appears everywhere in Kandinsky's paintings. He believed shades resonated with each other to produce visual 'chords' and had an influence on the soul.”* - The Guardian, speaking about Kandinsky's art.
+> *“The idea of music appears everywhere in Kandinsky's paintings. He believed shades resonated with each other to produce visual 'chords' and had an influence on the soul.”* - The Guardian, speaking about Vasilij Kandinsky's art.
 
 Even though sensations and inspiration cannot be faithfully reproduced by technology, this project tries to interprete music in a synesthetic way by analyzing songs with mood detection and, based on that, realizing an abstract painting to be used as a Spotify profile picture.
 
@@ -52,10 +52,16 @@ Abstract_Propic is built as a web application in which users can log in with the
 
 For the realization of this project a standard client-server architecture has been chosen, implemented with Node.js, MySql and Python.
 
-## 4. Code:
-
-## 5. Notes:
+## 4. Notes:
 The developement of Abstract_Propic has been a really challenging and exciting task. Along with the complexity in managing the analysis and generation problems, lots of ideas and solutions came out. We hope that this application will suggest the developement of more sophisticated tools that could explore the contamination between music and visual art as part of a new conception and deeper understanding of synesthetic phenomena.
 
-### 5.1. Contacts
+### 4.1. Contacts
 
+Laura Colzani: laura.colzani@mail.polimi.it
+Lorenzo Concina: lorenzo.concina@mail.polimi.it
+Luca Torelli: luca1.torelli@mail.polimi.it
+
+### 4.2 Resources
+
+- https://medium.com/@utk.is.here/keep-calm-and-train-a-gan-pitfalls-and-tips-on-training-generative-adversarial-networks-edd529764aa9
+- https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/
