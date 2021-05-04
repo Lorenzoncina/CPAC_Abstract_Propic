@@ -45,9 +45,9 @@ Examples of generated images are:
 {Happy, Angry, Sad, Relaxed}
 
 ## 3. The interface:
-Abstract_Propic is built as a webpage in which users can log in with their Spotify account, so that the application can retrieve the information needed for the analysis process. No personal or sensitive data are stored in the database during this phase, except for the Spotify user ID and a list of the ten user's top tracks. After the login, the user is directed back to the main page of the application, where the generated image will be displayed after few seconds, along with the list of the songs considered for the analysis.
+Abstract_Propic is built as a web application in which users can log in with their Spotify account, so that the application can retrieve the information needed for the analysis process. No personal or sensitive data are stored in the database during this phase, except for the Spotify user ID and a list of the ten user's top tracks. After the login, the user is directed back to the main page of the application, where the generated image will be displayed after few seconds, along with the list of the songs considered for the analysis.
 
-For the realization of this project a standard client-server architecture has been chosen, implemented with Node.js.
+For the realization of this project a standard client-server architecture has been chosen, implemented with Node.js, MySql and Python.
 
 ## 4. Code:
 
