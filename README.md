@@ -57,9 +57,9 @@ The developement of Abstract_Propic has been a really challenging and exciting t
 
 ### 4.1. Contacts
 
-Laura Colzani: laura.colzani@mail.polimi.it
-Lorenzo Concina: lorenzo.concina@mail.polimi.it
-Luca Torelli: luca1.torelli@mail.polimi.it
+- Laura Colzani: laura.colzani@mail.polimi.it
+- Lorenzo Concina: lorenzo.concina@mail.polimi.it
+- Luca Torelli: luca1.torelli@mail.polimi.it
 
 ### 4.2 Resources
 
