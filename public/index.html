@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Profile Picture Genarator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+      #login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+      @font-face {
+          font-family: mexcellent_3d;
+          src: url('mexcellent_3d.otf')
+      }
+
+      body{
+          background-size: 1500px 800px;
+        background-image: url("background_image2.JPG");
+
+        opacity: 0.9;
+      }
+      h1{
+        font-family:mexcellent_3d;
+      }
+      h4{
+        font-family:Helvetica;
+
+      }
+      .songs{
+        text-align: left;
+        font-size: 18px ;
+      }
+      #jumb{
+        border-radius: 10px;
+        margin-top: 4%;
+        height: 500px;
+      }
+      #login_button{
+        background-color:DodgerBlue;
+      }
+      img{
+        cursor:pointer;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id ="jumb" class="container jumbotron text-center">
+      <div id="login">
+        <h1>Abstract ProPic</h1>
+        <br>
+        <p>
+        <h4>
+          Create your own Spotify profile picture inspired by your favourite songs with our Deep-Learning based technology
+        </h4>
+        <br>
+        <p>
+        <div >
+          <a id="login_button" href="/login" class="btn btn-primary" >Log in with Spotify</a>
+        </div>
+      </div>
+      <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <!--
+        <div id="oauth">
+        </div>
+        <div id="songs">
+        </div>
+        !-->
+        <!--
+        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        !-->
+      </div>
+    </div>
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <h1>Logged in as {{display_name}}
+        <span>
+            <img style="border-radius: 50%"  width="100" src="{{images.0.url}}" />
+        </span>
+      </h1>
+
+      <br>
+      <img id="gif" src="loading.....gif" alt="funny GIF" width="15%">
+      <p id="gif_text">Painting your new profile picture...</p>
+    <div class="row">
+      <div class="col-lg-8">
+        <h4 id="songname" class="songs"></h4>
+      </div>
+      <div class="col-lg-4">
+        <div id="new_image_from_server" class="center" > </div>
+      </div>
+    </div>
+    </script>
+
+    <!-- display generated image!-->
+    <!--<script id="new-user-image-template" type="text/x-handlebars-template"> !-->
+
+    <!--</script> !-->
+    <!--
+    <script id="oauth-template" type="text/x-handlebars-template">
+
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+
+      </dl>
+
+    </script>
+    !-->
+
+    <!--
+    <script id="songs-template" type="text/x-handlebars-template">
+      <dt>first song name</dt><dd>{{items.0.name}}</dd>
+      <dt>first song Id</dt><dd>{{items.0.id}}</dd>
+      <dt>second song name</dt><dd>{{items.1.name}}</dd>
+      <dt>second song Id</dt><dd>{{items.1.id}}</dd>
+    </script>
+    !--->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script >
+      var user_id = null;
+
+      function taketheelement(){
+
+      }
+
+      var imagePath;
+
+      window.onclick = e => {
+          console.log(e.target.src);  // to get the element
+          imagePath = e.target.src;
+          dowloadImage();
+      }
+
+      let fileName;
+
+      function dowloadImage(){
+        fileName = getFileName(imagePath);
+        console.log(fileName);
+
+        var link = document.createElement("a");
+        link.download = fileName;
+        link.href = imagePath;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        delete link;
+      }
+
+      function getFileName(str) {
+        return str.substring(str.lastIndexOf('/') + 1)
+      }
+
+      (function() {
+
+        /**
+         * Obtains parameters from the hash of the URL
+         * @return Object
+         */
+        function getHashParams() {
+          var hashParams = {};
+          var e, r = /([^&;=]+)=?([^&;]*)/g,
+              q = window.location.hash.substring(1);
+          while ( e = r.exec(q)) {
+             hashParams[e[1]] = decodeURIComponent(e[2]);
+          }
+          return hashParams;
+        }
+
+        var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+            userProfileTemplate = Handlebars.compile(userProfileSource),
+            userProfilePlaceholder = document.getElementById('user-profile');
+        /*
+        var newUserProfileImageSource = document.getElementById('new-user-image-template').innerHTML,
+            newUserProfileImageTemplate = Handlebars.compile(newUserProfileImageSource),
+            newUserProfileImagePlaceholder = document.getElementById('new-user-profile-image');
+        */
+
+        /*
+        var oauthSource = document.getElementById('oauth-template').innerHTML,
+            oauthTemplate = Handlebars.compile(oauthSource),
+            oauthPlaceholder = document.getElementById('oauth');
+        */
+        /*
+        var songsSource = document.getElementById('songs-template').innerHTML,
+            songsTemplate = Handlebars.compile(songsSource),
+            songsPlaceholder = document.getElementById('songs');
+        */
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+        if (error) {
+          alert('There was an error during the authentication');
+        } else {
+          if (access_token) {
+            // render oauth info
+            /*
+            oauthPlaceholder.innerHTML = oauthTemplate({
+              access_token: access_token,
+              refresh_token: refresh_token
+            });
+            */
+
+            //var user_id = null;
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                async : false,
+                //url: 'https://api.spotify.com/v1/me/top/tracks?limit=10',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  user_id = response.id;
+                  userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+                  $('#login').hide();
+                  $('#loggedin').show();
+                }
+            });
+
+
+            var song1, song2, song3,song4,song5,song6,song7,song8,song9,song10;
+            var names = new Array(10);
+            var artists = new Array(10);
+
+            $.ajax({
+                //url: 'https://api.spotify.com/v1/me',
+                url: 'https://api.spotify.com/v1/me/top/tracks?limit=10',
+                async : false,
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  song1 = response.items[0].id;
+                  song2 = response.items[1].id;
+                  song3 = response.items[2].id;
+                  song4 = response.items[3].id;
+                  song5 = response.items[4].id;
+                  song6 = response.items[5].id;
+                  song7 = response.items[6].id;
+                  song8 = response.items[7].id;
+                  song9 = response.items[8].id;
+                  song10 = response.items[9].id;
+
+                  for( i= 0; i<10; i++){
+                    names[i] = response.items[i].name;
+                    artists[i] = response.items[i].artists[0].name;
+                  }
+                }
+            });
+            //console.log(song1);
+
+            //ajax request to update the DATABASE
+            console.log(user_id);
+            $.ajax({
+              url: '/add_new_user',
+              data: {
+                'user' : user_id,
+                'song1' : song1,
+                'song2' : song2,
+                'song3' : song3,
+                'song4' : song4,
+                'song5' : song5,
+                'song6' : song6,
+                'song7' : song7,
+                'song8' : song8,
+                'song9' : song9,
+                'song10' : song10,
+                'token' : access_token,
+                'image_name' : user_id
+              },
+              success: function(response){
+              //newUserProfileImagePlaceholder.innerHTML = newUserProfileImageTemplate(response)
+              document.getElementById("gif").style.display = "none";
+              document.getElementById("gif_text").style.display = "none";
+              document.getElementById('new_image_from_server').innerHTML=response;
+              songname.innerHTML = "Based on your top tracks:" + "<br>" + "<br>" +
+                                   "• " + names[0] +" - "+ artists[0] + "<br>" +
+                                   "• " + names[1] +" - "+ artists[1] + "<br>" +
+                                   "• " + names[2] +" - "+ artists[2] + "<br>"+
+                                   "• " + names[3] +" - "+ artists[3] + "<br>" +
+                                   "• " + names[4] +" - "+ artists[4] + "<br>" +
+                                   "• " + names[5] +" - "+ artists[5] + "<br>" +
+                                   "• " + names[6] +" - "+ artists[6] + "<br>" +
+                                   "• " + names[7] +" - "+ artists[7] + "<br>" +
+                                   "• " + names[8] +" - "+ artists[8] + "<br>" +
+                                   "• " + names[9] +" - "+ artists[9];
+              }
+            });
+
+            //get the new generated image from the server
+            /*
+            $.ajax({
+              url: '/retrieve_new_profile_image',
+              async : false,
+              data: {
+                'image_name' : user_id
+              },
+              success: function(response){
+              //newUserProfileImagePlaceholder.innerHTML = newUserProfileImageTemplate(response)
+               document.getElementById('new_image_from_server').innerHTML=response;
+
+              }
+            });
+            */
+          } else {
+              // render initial screen
+              $('#login').show();
+              $('#loggedin').hide();
+          }
+          /*
+          document.getElementById('obtain-new-token').addEventListener('click', function() {
+            $.ajax({
+              url: '/refresh_token',
+              data: {
+                'refresh_token': refresh_token
+              }
+            }).done(function(data) {
+              access_token = data.access_token;
+              oauthPlaceholder.innerHTML = oauthTemplate({
+                access_token: access_token,
+                refresh_token: refresh_token
+              });
+            });
+          }, false);
+          */
+        }
+      })();
+
+
+
+    </script>
+  </body>
+</html>
