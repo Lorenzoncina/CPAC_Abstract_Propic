@@ -55,6 +55,14 @@ For the realization of this project a standard client-server architecture has be
 ### 3.1 Version 2.0
 In a more recent version of the application, the interface shows on the right side of the web page a pie chart that summarizes the mood distribution found by extending the analysis to 30 top songs. This way, the user can acquire a better perception of how the analysis was conducted and understand how accurate (or approximate) is the picture generated on the basis of the first 10 songs. 
 
+An example of the implemented mood distribution chart is:
+
+<p align="left">
+  <img src="https://user-images.githubusercontent.com/57753481/119797840-e2135d80-beda-11eb-9929-4aeb51312088.jpeg" />
+</p>
+
+
+
 ## 4. Notes:
 The developement of Abstract_Propic has been a really challenging and exciting task. Along with the complexity in managing the analysis and generation problems, lots of ideas and solutions came out. We hope that this application will suggest the developement of more sophisticated tools that could explore the contamination between music and visual art as part of a new conception and deeper understanding of synesthetic phenomena.
 
